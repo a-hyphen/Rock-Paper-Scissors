@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <time.h>
 
+size_t won_items[3] = {0; 0; 0};
+
 typedef enum {
-    Rock = 0,
-    Paper = 1,
-    Scissors = 2,
+    rock = 0,
+    paper = 1,
+    scissors = 2,
 } value;
 
 value SelectARandomInteger() {
@@ -17,7 +19,7 @@ value SelectARandomInteger() {
     return((value)a_random_integer);
 }
 
-signed char EnterAChoiceAsAnInteger() {
+signed char EnterAChoiceAsAnInteger(size_t *quantities) {
     signed char an_integer = 0;
 
     printf("Enter a value: \n");
@@ -30,17 +32,22 @@ signed char EnterAChoiceAsAnInteger() {
     return(an_integer);
 }
 
-void RockPaperScissors() {
+size_t* RockPaperScissors(size_t *quantities) {
+    
+    printf("Rocks: %zu + %zu\n", 0[quantities], 0[won_items]};
+    printf("Paper: %zu + %zu\n", 1[quantities], 1[quantities]);
+    printf("Scissors: %zu + %zu\n\n", 2[quantities], 2[won_items]);
+
     unsigned char a_random_integer = SelectARandomInteger();
     signed char an_integer = EnterAChoiceAsAnInteger();
 
     if (an_integer == -1) {
-        return;
+        return(won_items);
     }
 
     if (an_integer < -1 || an_integer > 2) {
         printf ("An error message.\n\n");
-        return(RockPaperScissors());
+        return(RockPaperScissors(quantities));
     }
     
     if (an_integer == a_random_integer) {
@@ -48,39 +55,43 @@ void RockPaperScissors() {
     }
     else {
         switch (a_random_integer) {
-        case Rock:
+        case rock:
             if (an_integer == 1) {
                 printf("The user wins a rock.\n\n");
+                ++0[won_items];
             }
             if (an_integer == 2) {
                 printf("The user loses.\n\n");
             }
             break;
 
-        case Paper:
+        case paper:
             if (an_integer == 0) {
                 printf("The user loses.\n\n");
             }
             if (an_integer == 2) {
                 printf("The user wins a piece of paper.\n\n");
+                ++1[won_items];
             }
             break;
 
-        case Scissors:
+        case scissors:
             if (an_integer == 0) {
                 printf("The user wins a pair of scissors.\n\n");
+                ++2[won_items];
             }
             if (an_integer == 1) {
                 printf("The user loses.\n\n");
             }
         }
     }
-    return(RockPaperScissors());
+    return(RockPaperScissors(quantities));
 }
 
 int main() {
-    
-    RockPaperScissors();
+    size_t quantities[3];
+
+    RockPaperScissors(quantities);
 
     return(0);
 }
