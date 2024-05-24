@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-size_t won_items[3] = {0; 0; 0};
+size_t won_items[3] = {0, 0, 0};
 
 typedef enum {
     rock = 0,
@@ -10,8 +10,8 @@ typedef enum {
     scissors = 2,
 } value;
 
-value SelectARandomInteger() {
-    unsigned char a_random_integer;
+inline value SelectARandomInteger() {
+    auto unsigned char a_random_integer;
 
     srandom(time(NULL));
     a_random_integer = random() % 3;
@@ -19,8 +19,8 @@ value SelectARandomInteger() {
     return((value)a_random_integer);
 }
 
-signed char EnterAChoiceAsAnInteger(size_t *quantities) {
-    signed char an_integer = 0;
+inline signed char EnterAChoiceAsAnInteger() {
+    auto signed char an_integer = 0;
 
     printf("Enter a value: \n");
     printf("0 is used to represent: Rock\n");
@@ -32,14 +32,14 @@ signed char EnterAChoiceAsAnInteger(size_t *quantities) {
     return(an_integer);
 }
 
-size_t* RockPaperScissors(size_t *quantities) {
+inline size_t* RockPaperScissors(size_t *quantities) {
     
-    printf("Rocks: %zu + %zu\n", 0[quantities], 0[won_items]};
+    printf("Rocks: %zu + %zu\n", 0[quantities], 0[won_items]);
     printf("Paper: %zu + %zu\n", 1[quantities], 1[quantities]);
     printf("Scissors: %zu + %zu\n\n", 2[quantities], 2[won_items]);
 
-    unsigned char a_random_integer = SelectARandomInteger();
-    signed char an_integer = EnterAChoiceAsAnInteger();
+    auto unsigned char a_random_integer = SelectARandomInteger();
+    auto signed char an_integer = EnterAChoiceAsAnInteger();
 
     if (an_integer == -1) {
         return(won_items);
@@ -89,7 +89,7 @@ size_t* RockPaperScissors(size_t *quantities) {
 }
 
 int main() {
-    size_t quantities[3];
+    auto size_t quantities[3];
 
     RockPaperScissors(quantities);
 
