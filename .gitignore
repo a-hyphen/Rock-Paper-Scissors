@@ -8,4 +8,4 @@
 *.dylib
 *.so
 *.dll
-*.history
+*.apl.history
