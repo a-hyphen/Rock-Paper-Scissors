@@ -1,0 +1,11 @@
+*.o
+*.obj
+*.out
+*.bin
+*.exe
+*.a
+*.lib
+*.dylib
+*.so
+*.dll
+*.history
