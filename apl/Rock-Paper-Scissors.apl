@@ -1,3 +1,3 @@
-"Hello world"
+#! dyalogscript
 
-)OFF
+⎕←'Hello world'
