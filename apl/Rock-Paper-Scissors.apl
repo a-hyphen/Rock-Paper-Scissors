@@ -1,4 +1,4 @@
-#! /opt/homebrew/bin/apl --script
+#!/opt/homebrew/bin/apl --script
 
 ⎕←"Hello world"
 
