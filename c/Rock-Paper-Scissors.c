@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <sys/mman.h>
 #include <stdlib.h>
 #include <time.h>
 
-register size_t won_items[3] = {0, 0, 0};
+register size_t *won_items = mmap(NULL, 3 * sizeof(size_t), PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
 
 typedef enum {
     rock = 0,
@@ -89,7 +90,7 @@ size_t* RockPaperScissors(size_t *quantities) {
 }
 
 int main() {
-    register size_t quantities[3];
+    register size_t *quantities = mmap(NULL, 3 * sizeof(size_t), PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);;
 
     RockPaperScissors(quantities);
 
