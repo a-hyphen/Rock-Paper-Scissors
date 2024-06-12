@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-auto register size_t won_items[3] = {0, 0, 0};
+register size_t won_items[3] = {0, 0, 0};
 
 typedef enum {
     rock = 0,
@@ -11,7 +11,7 @@ typedef enum {
 } value;
 
 inline value SelectARandomInteger() {
-    auto register unsigned char a_random_integer;
+    register unsigned char a_random_integer;
 
     srandom(time(NULL));
     a_random_integer = random() % 3;
@@ -20,7 +20,7 @@ inline value SelectARandomInteger() {
 }
 
 inline signed char EnterAChoiceAsAnInteger() {
-    auto register signed char an_integer = 0;
+    register signed char an_integer = 0;
 
     printf("Enter a value: \n");
     printf("0 is used to represent: Rock\n");
@@ -38,8 +38,8 @@ size_t* RockPaperScissors(size_t *quantities) {
     printf("Paper: %zu + %zu\n", 1[quantities], 1[quantities]);
     printf("Scissors: %zu + %zu\n\n", 2[quantities], 2[won_items]);
 
-    auto unsigned char a_random_integer = SelectARandomInteger();
-    auto signed char an_integer = EnterAChoiceAsAnInteger();
+    register unsigned char a_random_integer = SelectARandomInteger();
+    register signed char an_integer = EnterAChoiceAsAnInteger();
 
     if (an_integer == -1) {
         return(won_items);
@@ -89,7 +89,7 @@ size_t* RockPaperScissors(size_t *quantities) {
 }
 
 int main() {
-    auto register size_t quantities[3];
+    register size_t quantities[3];
 
     RockPaperScissors(quantities);
 
